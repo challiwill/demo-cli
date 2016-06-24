@@ -8,6 +8,22 @@
 			"revision": "b9b882a3990882b05e02765f5df2cd3ad02874ee",
 			"branch": "master",
 			"notests": true
+		},
+		{
+			"importpath": "github.com/nicksnyder/go-i18n",
+			"repository": "https://github.com/nicksnyder/go-i18n",
+			"vcs": "git",
+			"revision": "37e5c2de3e03e4b82693e3fcb4a6aa2cc4eb07e3",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "gopkg.in/yaml.v2",
+			"repository": "https://gopkg.in/yaml.v2",
+			"vcs": "git",
+			"revision": "a83829b6f1293c91addabc89d0571c246397bbf4",
+			"branch": "v2",
+			"notests": true
 		}
 	]
 }
