@@ -1,0 +1,38 @@
+[
+   {
+      "id": "fr-FR",
+      "translation": "fr-FR"
+   },
+   {
+      "id": "ERROR: ",
+      "translation": "ERROR: "
+   },
+   {
+      "id": "command:\"app-show\" description:\"show the app details\"",
+      "translation": "command:\"app-show\" description:\"show the app details\""
+   },
+   {
+      "id": "CUSTOM HELP MESSAGE",
+      "translation": "CUSTOM HELP MESSAGE"
+   },
+   {
+      "id": "AppShow",
+      "translation": "AppShow"
+   },
+   {
+      "id": "FIELD NOT FOUND",
+      "translation": "FIELD NOT FOUND"
+   },
+   {
+      "id": "translations/fr-fr.all.json",
+      "translation": "translations/fr-fr.all.json"
+   },
+   {
+      "id": "description",
+      "translation": "description"
+   },
+   {
+      "id": "Wrong number of arguments, expecting APP_NAME",
+      "translation": "Wrong number of arguments, expecting APP_NAME"
+   }
+]
