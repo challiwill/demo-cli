@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"os"
 	"reflect"
-	"strings"
-	"unicode"
 
 	"github.com/jessevdk/go-flags"
 	"github.com/nicksnyder/go-i18n/i18n"
@@ -22,25 +20,15 @@ func main() {
 	if flagsErr, ok := err.(*flags.Error); ok && flagsErr.Type == flags.ErrHelp {
 		fmt.Println("CUSTOM HELP MESSAGE")
 		// This grabs the proper command field off of the cli struct so that we can
-		// parse the struct tag. We could handle this in at least two ways:
-		//
-		// - We could use FieldByName() and have a lookup from command name to
-		// field name that we will pass in.
-		// - We could convert from command name to field name (as I have done) and
-		// keep consistent field names with command names.
+		// parse the struct tag. It does this by looking up the field that matches
+		// the active command name. Potentially you would have to look up by
+		// command alias as well.
 		field, found := reflect.TypeOf(cli).FieldByNameFunc(
 			func(fieldName string) bool {
-				cmdName := parser.Active.Name
-				splitCmd := strings.Split(cmdName, "-")
-				camelSplitCmd := make([]string, len(splitCmd))
-				for i, s := range splitCmd {
-					a := []rune(s)
-					a[0] = unicode.ToUpper(a[0])
-					camelSplitCmd[i] = string(a)
-				}
-				camelCmd := strings.Join(camelSplitCmd, "")
-
-				return camelCmd == fieldName
+				// We do not need to check four 'found' here because we are looping
+				// over field names pulled off the struct.
+				field, _ := reflect.TypeOf(cli).FieldByName(fieldName)
+				return parser.Active.Name == field.Tag.Get("command")
 			},
 		)
 		if !found {
